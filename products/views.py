@@ -1,7 +1,10 @@
 from django.http import HttpResponse
+from django.shortcuts import render
+from .models import Product
 
 def index(request):
-    return HttpResponse("Hello Friends! Greetings from Django | from http server! | DEV Yoni!")
+    products = Product.objects.all()
+    return render(request, 'index.html')
 
 def new(request):
     return HttpResponse("New Products added | DEV Yoni | Python!")
